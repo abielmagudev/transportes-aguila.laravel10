@@ -9,5 +9,7 @@
     <a href="{{ route('movimientos.index') }}" class="btn btn-primary">Regresar</a>
 </form>
 <br>
-@include('movimientos/_modal-delete')
+<x-custom.modal-confirmar-eliminar :route="route('movimientos.destroy', $movimiento)" name="movimiento">
+    <p class='text-center my-4'>Deseas eliminar movimiento <b>#{{ $movimiento->id }}: Remolque {{ $movimiento->numero_remolque }}?</b></p>
+</x-custom.modal-confirmar-eliminar>
 @endsection

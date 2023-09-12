@@ -9,5 +9,7 @@
     <a href="{{ route('lineas_americanas.index') }}" class="btn btn-primary">Regresar</a>
 </form>
 <br>
-@include('lineas-americanas/_modal-delete')
+<x-custom.modal-confirmar-eliminar :route="route('lineas_americanas.destroy', $lineaAmericana)" name="línea americana">
+    <p class='text-center my-4'>Deseas continuar para eliminar la línea americana <b>{{ $lineaAmericana->nombre }}</b>?</p>
+</x-custom.modal-confirmar-eliminar>
 @endsection

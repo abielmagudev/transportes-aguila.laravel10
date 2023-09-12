@@ -9,5 +9,7 @@
     <a href="{{ route('tipos_remolque.index') }}" class="btn btn-primary">Regresar</a>
 </form>
 <br>
-@include('tipos-remolque/_modal-delete')
+<x-custom.modal-confirmar-eliminar :route="route('tipos_remolque.destroy', $tipoRemolque)" name="tipo de remolque">
+    <p class='text-center my-4'>Deseas continuar para eliminar el tipo de remolque <b>{{ $tipoRemolque->nombre }}</b>?</p>
+</x-custom.modal-confirmar-eliminar>
 @endsection
