@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Cliente;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,7 +27,7 @@ class ClienteFactory extends Factory
             'codigo_postal' => $this->faker->postcode(),
             'ciudad' => $this->faker->optional()->city(),
             'estado' => $this->faker->optional()->state(),
-            'pais' => $this->faker->optional()->country(),
+            'pais' => $this->faker->randomElement( Cliente::getClavesPaisesPredeterminados() ),
             'cuenta_banco' => $this->faker->creditCardNumber(),
             'moneda' => $this->faker->randomElement(['peso', 'dollar', 'quetzal']),
             'regimen_fiscal' => (explode(' ', $this->faker->userAgent()))[0],
