@@ -29,10 +29,10 @@ class ClienteFactory extends Factory
             'estado' => $this->faker->optional()->state(),
             'pais' => $this->faker->randomElement( Cliente::getClavesPaisesPredeterminados() ),
             'cuenta_banco' => $this->faker->creditCardNumber(),
-            'moneda' => $this->faker->randomElement(['peso', 'dollar', 'quetzal']),
+            'moneda' => $this->faker->randomElement( config('aplicacion.tipos_moneda') ),
             'regimen_fiscal' => (explode(' ', $this->faker->userAgent()))[0],
             'retencion_cuatro_porciento' => $this->faker->boolean(),
-            'tipo_pago' => $this->faker->randomElement(['cheque', 'efectivo', 'transferencia']),
+            'tipo_pago' => $this->faker->randomElement( config('aplicacion.tipos_pago') ),
             'tasa_iva' => $this->faker->randomElement(['4', '8', '12', '16']),
             'cuenta_contable' => $this->faker->iban(),
         ];
