@@ -1,9 +1,9 @@
 @extends('aplicacion')
 @section('contenido')
-<div class="float-end">
-    <a href="{{ route('clientes.create') }}" class="btn btn-primary">Nuevo</a>
-</div>
 <h1>Clientes</h1>
+<p class="text-end">
+    <a href="{{ route('clientes.create') }}" class="btn btn-primary">Nuevo cliente</a>
+</p>
 <hr>
 <div class="table-responsive">
     <table class="table">

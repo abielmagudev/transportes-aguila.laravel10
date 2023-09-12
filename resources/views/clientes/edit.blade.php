@@ -2,12 +2,15 @@
 @section('contenido')
 <h1>Editar cliente</h1>
 <hr>
+<br>
 <form action="{{ route('clientes.update', $cliente) }}" method="post" autocomplete="off">
     @include('clientes._form')
     @method('put')
     <br>
-    <button class="btn btn-warning" type="submit">Actualizar cliente</button>
-    <a href="{{ route('clientes.index') }}" class="btn btn-primary">Regresar</a>
+    <div class="text-end">
+        <button class="btn btn-warning" type="submit">Actualizar cliente</button>
+        <a href="{{ route('clientes.index') }}" class="btn btn-primary">Regresar</a>
+    </div>
 </form>
 <br>
 <x-custom.modal-confirmar-eliminar name="cliente" :route="route('clientes.destroy', $cliente)">
