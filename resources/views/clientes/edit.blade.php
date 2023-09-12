@@ -1,8 +1,10 @@
 @extends('aplicacion')
 @section('contenido')
-<h1>Editar cliente</h1>
-<hr>
-<br>
+<x-custom.header-left-right>
+    <x-slot name="left">
+        <h1>Editar cliente</h1>
+    </x-slot>
+</x-custom.header-left-right>
 <form action="{{ route('clientes.update', $cliente) }}" method="post" autocomplete="off">
     @include('clientes._form')
     @method('put')

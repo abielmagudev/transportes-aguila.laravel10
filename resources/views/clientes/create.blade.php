@@ -1,8 +1,10 @@
 @extends('aplicacion')
 @section('contenido')
-<h1>Nuevo cliente</h1>
-<hr>
-<br>
+<x-custom.header-left-right>
+    <x-slot name="left">
+        <h1>Nuevo cliente</h1>
+    </x-slot>
+</x-custom.header-left-right>
 <form action="{{ route('clientes.store') }}" method="post" autocomplete="off">
     @include('clientes._form')
     <br>

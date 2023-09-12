@@ -1,10 +1,14 @@
 @extends('aplicacion')
 @section('contenido')
-<h1>Clientes</h1>
-<p class="text-end">
-    <a href="{{ route('clientes.create') }}" class="btn btn-primary">Nuevo cliente</a>
-</p>
-<hr>
+<x-custom.header-left-right>
+    <x-slot name="left">
+        <h1>Clientes</h1>
+    </x-slot>
+    <x-slot name="right">
+        <a href="{{ route('clientes.create') }}" class="btn btn-primary">Nuevo cliente</a>
+    </x-slot>
+</x-custom.header-left-right>
+
 <div class="table-responsive">
     <table class="table">
         <thead>
