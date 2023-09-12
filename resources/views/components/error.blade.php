@@ -2,10 +2,10 @@
     {{ $slot ?? '' }}
     
 @else
-    @error($buscar)
+    @error($name)
     <div class="text-danger">
         <span class="fw-bold">*</span>
-        <span class="small">{{ $message }}</span>
+        <span>{{ $message }}</span>
     </div>
     @enderror
 
