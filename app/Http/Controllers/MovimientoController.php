@@ -31,7 +31,7 @@ class MovimientoController extends Controller
             'movimiento' => new Movimiento,
             'tiposRemolque' => TipoRemolque::all(),
             'lineasAmericanas' => LineaAmericana::all(),
-            'cercasDecaGps' => CercaDecaGps::all(),
+            'cercasDecaGps' => [],// CercaDecaGps::all(),
         ]);
     }
 
