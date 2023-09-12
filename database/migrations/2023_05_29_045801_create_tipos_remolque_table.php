@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('linea_americanas', function (Blueprint $table) {
+        Schema::create('tipos_remolque', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->unique();
-            $table->text('notas')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('linea_americanas');
+        Schema::dropIfExists('tipos_remolque');
     }
 };
