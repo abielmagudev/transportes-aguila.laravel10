@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('rutas', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre')->unique();
+            $table->unsignedInteger('kilometraje');
             $table->timestamps();
         });
     }

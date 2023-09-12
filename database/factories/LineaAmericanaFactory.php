@@ -17,7 +17,8 @@ class LineaAmericanaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => $this->faker->unique(true)->company(),
+            'notas' => $this->faker->optional()->sentence(),
         ];
     }
 }

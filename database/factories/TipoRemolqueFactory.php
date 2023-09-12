@@ -17,7 +17,7 @@ class TipoRemolqueFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => sprintf('%s #%d', $this->faker->unique(true)->randomElement(['lowboy', 'semiremolque', 'caja', 'volteo', 'standard', 'doble-piso']), mt_rand(1, 10)),
         ];
     }
 }

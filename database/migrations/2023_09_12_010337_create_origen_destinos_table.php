@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('origen_destinos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre')->unique();
+            $table->string('rfc')->unique();
+            $table->string('direccion');
+            $table->string('calle');
+            $table->string('numero_exterior');
+            $table->string('numero_interior');
+            $table->string('codigo_postal');
+            $table->string('pais');
+            $table->string('estado');
+            $table->string('ciudad');
             $table->timestamps();
         });
     }

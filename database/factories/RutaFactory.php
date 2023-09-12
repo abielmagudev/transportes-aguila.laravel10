@@ -17,7 +17,8 @@ class RutaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => $this->faker->unique(true)->city(),
+            'kilometraje' => mt_rand(),
         ];
     }
 }
