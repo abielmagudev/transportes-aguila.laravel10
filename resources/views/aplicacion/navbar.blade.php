@@ -21,6 +21,9 @@
               <span>Catálogos</span>
             </a>
             <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ route('clientes.index') }}">
+                <span>Clientes</span>
+              </a>
               <a class="dropdown-item" href="{{ route('lineas_americanas.index') }}">
                 <span>Líneas americanas</span>
               </a>

@@ -2,64 +2,63 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClienteSaveRequest;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return view('clientes.index')->with('clientes', Cliente::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('clientes.create', [
+            'cliente' => new Cliente,
+            'paises_predeterminados' => Cliente::getPaisesPredeterminados(),
+            'tipos_moneda' => config('aplicacion.tipos_moneda'),
+            'tipos_pago' => config('aplicacion.tipos_pago'),
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(ClienteSaveRequest $request)
     {
-        //
+        if(! $cliente = Cliente::create($request->validated()) )
+            return back()->with('danger', 'Error al guardar cliente');
+
+        return redirect()->route('clientes.index')->with('success', "Cliente {$cliente->nombre} guardado");
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Cliente $cliente)
     {
-        //
+        return view('clientes.show')->with('cliente', $cliente);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Cliente $cliente)
     {
-        //
+        return view('clientes.edit', [
+            'cliente' => $cliente,
+            'paises_predeterminados' => Cliente::getPaisesPredeterminados(),
+            'tipos_moneda' => config('aplicacion.tipos_moneda'),
+            'tipos_pago' => config('aplicacion.tipos_pago'),
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Cliente $cliente)
+    public function update(ClienteSaveRequest $request, Cliente $cliente)
     {
-        //
+        if(! $cliente->fill( $request->validated() )->save() )
+            return back()->with('danger', 'Error al actualizar cliente');
+
+        return redirect()->route('clientes.edit', $cliente)->with('success', "Cliente <b>{$cliente->nombre}</b> actualizado");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Cliente $cliente)
     {
-        //
+        if(! $cliente->delete() )
+            return back()->with('danger', 'Error al eliminar cliente');
+
+        return redirect()->route('clientes.index')->with('success', "Cliente <b>{$cliente->nombre}</b> eliminado");
     }
 }
