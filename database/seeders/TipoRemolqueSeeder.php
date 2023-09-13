@@ -13,6 +13,6 @@ class TipoRemolqueSeeder extends Seeder
      */
     public function run(): void
     {
-        TipoRemolque::factory(3)->create();
+        TipoRemolque::factory(5)->create();
     }
 }
