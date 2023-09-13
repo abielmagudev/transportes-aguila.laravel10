@@ -15,14 +15,14 @@ class Cliente extends Model
         'nombre',
         'rfc',
         'direccion',
-        'numero_exterior',
-        'numero_interior',
-        'colonia',
+        'numero_exterior', // null
+        'numero_interior', // null 
+        'colonia', // null
         'codigo_postal',
         'pais',
         'estado',
         'ciudad',
-        'cuenta_bancaria',
+        'cuenta_bancaria', // null
         'moneda',
         'regimen_fiscal',
         'retencion',

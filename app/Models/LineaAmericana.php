@@ -15,6 +15,6 @@ class LineaAmericana extends Model
 
     protected $fillable = [
         'nombre',
-        'notas',
+        'notas', // null
     ];
 }
