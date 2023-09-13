@@ -18,4 +18,9 @@ trait HasPaisesPredeterminadosTrait
     {
         return array_values( self::getPaisesPredeterminados() );
     }
+
+    public static function getNombrePais(string $clave)
+    {
+        return self::getPaisesPredeterminados()[$clave] ?? null;
+    }
 }
