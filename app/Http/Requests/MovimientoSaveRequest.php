@@ -14,38 +14,45 @@ class MovimientoSaveRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'numero_remolque' => ['required'],
-            'placas_remolque' => ['required'],
-            'propietario_remolque' => ['required'],
-            'cantidad_dias_patio' => ['required'],
-            'observaciones' => 'nullable',
-            'cerrado_extranjero' => 'required',
-            'cruce_directo' => 'required',
-            'id_tipo_remolque' => ['required'],
-            'id_linea_americana' => ['required'],
-            'id_cerca_decagps_origen' => ['required'],
-            'id_cerca_decagps_destino' => ['required'],
-            'fecha' => ['required'],
-            'hora' => ['required'],
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'numero_remolque.required' => __('Escribe el número de remolque'),
-            'placas_remolque.required' => __('Escribe el número de placas del remolque'),
-            'propietario_remolque.required' => __('Escribe el propietario del remolque'),
-            'cantidad_dias_patio.required' => __('Escribe la cantidad de dias en patio del remolque'),
-            // 'observaciones' => 'nullable',
-            // 'cerrado_extranjero' => 'sometimes',
-            // 'cruce_directo' => 'sometimes',
-            'id_tipo_remolque.required' => __('Selecciona el tipo de remolque'),
-            'id_linea_americana.required' => __('Selecciona la línea americana'),
-            'id_cerca_decagps_origen.required' => __('Selecciona la cerca GPS de origen'),
-            'id_cerca_decagps_destino.required' => __('Selecciona la cerca GPS de destino'),
-            'fecha.required' => __('Selecciona o escribe la fecha del movimiento'),
-            'hora.required' => __('Selecciona o escribe la hora del movimiento'),
+            'numero_remolque' => [
+                'required'
+            ],
+            'placas_remolque' => [
+                'required'
+            ],
+            'propietario_remolque' => [
+                'required'
+            ],
+            'cantidad_dias_patio' => [
+                'required'
+            ],
+            'observaciones' => [
+                'nullable'
+            ],
+            'cerrado_extranjero' => [
+                'required'
+            ],
+            'cruce_directo' => [
+                'required'
+            ],
+            'id_tipo_remolque' => [
+                'required'
+            ],
+            'id_linea_americana' => [
+                'required'
+            ],
+            'id_cerca_decagps_origen' => [
+                'required'
+            ],
+            'id_cerca_decagps_destino' => [
+                'required'
+            ],
+            'fecha' => [
+                'required'
+            ],
+            'hora' => [
+                'required'
+            ],
         ];
     }
 

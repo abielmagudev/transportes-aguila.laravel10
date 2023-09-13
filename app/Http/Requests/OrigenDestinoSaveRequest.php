@@ -46,11 +46,4 @@ class OrigenDestinoSaveRequest extends FormRequest
             ],
         ];
     }
-
-    public function messages()
-    {
-        return [
-            
-        ];
-    }
 }

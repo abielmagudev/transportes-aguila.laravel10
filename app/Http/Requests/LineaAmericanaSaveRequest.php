@@ -25,15 +25,9 @@ class LineaAmericanaSaveRequest extends FormRequest
                     $this->linea_americana_id
                 ),
             ],
-            'notas' => 'nullable',
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'nombre.required' => __('Escribe el nombre'),
-            'nombre.unique' => __('Escribe un nombre diferente'),
+            'notas' => [
+                'nullable',
+            ],
         ];
     }
 

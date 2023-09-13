@@ -28,14 +28,6 @@ class TipoRemolqueSaveRequest extends FormRequest
         ];
     }
 
-    public function messages()
-    {
-        return [
-            'nombre.required' => __('Escribe el nombre'),
-            'nombre.unique' => __('Escribe un nombre diferente'),
-        ];
-    }
-
     public function prepareForValidation()
     {
         $this->tipo_remolque_id = $this->tipoRemolque->id ?? 0;
