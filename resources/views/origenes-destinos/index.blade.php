@@ -1,6 +1,6 @@
 @extends('aplicacion')
 @section('contenido')
-<h1>Origenes y destinos</h1>
+<h1>Orígenes y destinos</h1>
 <br>
 <p class="text-end">
     <a href="{{ route('origenes_destinos.create') }}" class="btn btn-primary">Nuevo origen | destino</a>
