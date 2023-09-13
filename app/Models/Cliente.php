@@ -22,6 +22,7 @@ class Cliente extends Model
         'pais',
         'estado',
         'ciudad',
+        'cuenta_bancaria',
         'moneda',
         'regimen_fiscal',
         'retencion',

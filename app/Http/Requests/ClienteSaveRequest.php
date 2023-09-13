@@ -2,31 +2,28 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Cliente;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ClienteSaveRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+    public $cliente_id;
+
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
-     */
     public function rules(): array
     {
         return [
             'nombre' => [
                 'required',
+                sprintf('unique:%s,nombre,%s,id', Cliente::class, $this->cliente_id)
             ],
             'rfc' => [
                 'required',
+                sprintf('unique:%s,rfc,%s,id', Cliente::class, $this->cliente_id)
             ],
             'direccion' => [
                 'required',
@@ -51,6 +48,9 @@ class ClienteSaveRequest extends FormRequest
             ],
             'ciudad' => [
                 'required',
+            ],
+            'cuenta_bancaria' => [
+                'nullable',
             ],
             'moneda' => [
                 'required',
@@ -100,5 +100,7 @@ class ClienteSaveRequest extends FormRequest
         $this->merge([
             'retencion' => (int) $this->filled('retencion'),
         ]);
+
+        $this->cliente_id = $this->route('cliente')->id ?? 0;
     }
 }
