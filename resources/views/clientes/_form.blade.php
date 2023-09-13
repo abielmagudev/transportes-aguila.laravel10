@@ -54,8 +54,8 @@
     <x-error name="ciudad" />
 </div>
 <div class="mb-3">
-    <label for="inputCuentaBando" class="form-label">Cuenta de banco</label>
-    <input type="text" class="form-control" id="inputCuentaBando" name="cuenta_bancaria" value="{{ old('cuenta_bancaria', $cliente->cuenta_bancaria) }}">
+    <label for="inputCuentaBancaria" class="form-label">Cuenta bancaria</label>
+    <input type="text" class="form-control" id="inputCuentaBancaria" name="cuenta_bancaria" value="{{ old('cuenta_bancaria', $cliente->cuenta_bancaria) }}">
     <x-error name="cuenta_bancaria" />
 </div>
 <div class="mb-3">
@@ -77,7 +77,7 @@
     <label for="checkboxRetencion" class="form-label">Retención</label>
     <div class="form-control">
         <div class="form-check">
-            <input class="form-check-input" id="checkboxRetencion" type="checkbox" name="retencion_cuatro_porciento" value="1">
+            <input class="form-check-input" id="checkboxRetencion" type="checkbox" name="retencion" value="1" {{ old('retencion', $cliente->retencion) ? 'checked' : '' }}>
             <label class="form-check-label" for="checkboxRetencion">Si, retencion del 4%</label>
         </div>
     </div>

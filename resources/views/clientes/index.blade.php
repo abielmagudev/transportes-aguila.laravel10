@@ -20,7 +20,7 @@
                     <th>Ciudad</th>
                     <th>Estado</th>
                     <th>País</th>
-                    <th class="text-nowrap">Cuenta de banco</th>
+                    <th class="text-nowrap">Cuenta bancaria</th>
                     <th>Moneda</th>
                     <th class="text-nowrap">Régimen fiscal</th>
                     <th class="text-nowrap">Retención del 4%</th>
