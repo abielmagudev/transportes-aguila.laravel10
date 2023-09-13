@@ -30,6 +30,9 @@
               <a class="dropdown-item" href="{{ route('origenes_destinos.index') }}">
                 <span>Origenes y destinos</span>
               </a>
+              <a class="dropdown-item" href="{{ route('propietarios.index') }}">
+                <span>Propietarios</span>
+              </a>
               <a class="dropdown-item" href="{{ route('tipos_remolque.index') }}">
                 <span>Tipos de remolque</span>
               </a>
