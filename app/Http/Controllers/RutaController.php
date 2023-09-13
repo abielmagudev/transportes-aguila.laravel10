@@ -2,64 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RutaSaveRequest;
 use App\Models\Ruta;
 use Illuminate\Http\Request;
 
 class RutaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return view('rutas.index')->with('rutas', Ruta::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('rutas.create')->with('ruta', new Ruta);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(RutaSaveRequest $request)
     {
-        //
+        if(! $ruta = Ruta::create( $request->validated() ) )
+            return back()->with('danger', 'Error al guardar ruta');
+
+        return redirect()->route('rutas.index')->with('success', "Ruta <b>{$ruta->nombre}</b> guardado");
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Ruta $ruta)
     {
-        //
+        return redirect()->route('rutas.index');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Ruta $ruta)
     {
-        //
+        return view('rutas.edit')->with('ruta', $ruta);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Ruta $ruta)
+    public function update(RutaSaveRequest $request, Ruta $ruta)
     {
-        //
+        if(! $ruta->fill( $request->validated() )->save() )
+            return back()->with('danger', 'Error al actualizar ruta');
+
+        return redirect()->route('rutas.edit', $ruta)->with('success', "Ruta <b>{$ruta->nombre}</b> actualizado");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Ruta $ruta)
     {
-        //
+        if(! $ruta->delete() )
+            return back()->with('danger', 'Error al eliminar ruta');
+
+        return redirect()->route('rutas.index')->with('success', "Ruta <b>{$ruta->nombre}</b> eliminado");
     }
 }

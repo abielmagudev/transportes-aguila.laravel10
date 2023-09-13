@@ -30,6 +30,9 @@
               <a class="dropdown-item" href="{{ route('tipos_remolque.index') }}">
                 <span>Tipos de remolque</span>
               </a>
+              <a class="dropdown-item" href="{{ route('rutas.index') }}">
+                <span>Rutas</span>
+              </a>
             </div>
           </li>
         </ul>
