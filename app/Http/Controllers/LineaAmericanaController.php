@@ -21,9 +21,9 @@ class LineaAmericanaController extends Controller
     public function store(LineaAmericanaSaveRequest $request)
     {
         if(! $lineaAmericana = LineaAmericana::create($request->validated()) )
-            return back()->with('danger', 'Error al guardar línea americana, intenta nuevamente');
+            return back()->with('danger', 'Error al guardar línea americana');
 
-        return redirect()->route('lineas_americanas.index')->with('success', "Se guardó línea americana {$lineaAmericana->nombre}");
+        return redirect()->route('lineas_americanas.index')->with('success', "Línea americana <b>{$lineaAmericana->nombre}</b> guardado");
     }
 
     public function show(LineaAmericana $lineaAmericana)
@@ -39,16 +39,16 @@ class LineaAmericanaController extends Controller
     public function update(LineaAmericanaSaveRequest $request, LineaAmericana $lineaAmericana)
     {
         if(! $lineaAmericana->fill($request->validated())->save() )
-            return back()->with('danger', 'Error al actualizar línea americana, intenta nuevamente');
+            return back()->with('danger', 'Error al actualizar línea americana');
 
-        return redirect()->route('lineas_americanas.edit', $lineaAmericana)->with('success', 'Se actualizó línea americana correctamente');
+        return redirect()->route('lineas_americanas.edit', $lineaAmericana)->with('success', "Línea americana <b>{$lineaAmericana->nombre}</b> actualizado");
     }
 
     public function destroy(LineaAmericana $lineaAmericana)
     {
         if(! $lineaAmericana->delete() )
-            return back()->with('danger', 'Error al eliminar línea americana, intenta nuevamente');
+            return back()->with('danger', 'Error al eliminar línea americana');
 
-        return redirect()->route('lineas_americanas.index')->with('success', "Línea americana {$lineaAmericana->nombre} eliminada");
+        return redirect()->route('lineas_americanas.index')->with('success', "Línea americana <b>{$lineaAmericana->nombre}</b> eliminada");
     }
 }

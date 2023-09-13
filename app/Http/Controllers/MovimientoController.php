@@ -38,11 +38,11 @@ class MovimientoController extends Controller
     public function store(MovimientoSaveRequest $request)
     {
         if(! $movimiento = Movimiento::create($request->validated()) )
-            return back()->with('danger', 'Error al guardar movimiento, intenta nuevamente');
+            return back()->with('danger', 'Error al guardar movimiento');
 
         Ciclo::guardarMovimiento($movimiento);
 
-        return redirect()->route('movimientos.index')->with('success', "Se guardó movimiento #{$movimiento->id} del remolque <b>{$movimiento->numero_remolque}</b>");
+        return redirect()->route('movimientos.index')->with('success', "Movimiento #{$movimiento->id} del remolque <b>{$movimiento->numero_remolque}</b> guardado");
     }
 
     /**
@@ -66,17 +66,17 @@ class MovimientoController extends Controller
     public function update(MovimientoSaveRequest $request, Movimiento $movimiento)
     {
         if(! $movimiento->fill($request->validated())->save() )
-            return back()->with('danger', 'Error al actualizar movimiento, intenta nuevamente');
+            return back()->with('danger', 'Error al actualizar movimiento');
 
         Ciclo::actualizarMovimiento($movimiento);
 
-        return redirect()->route('movimientos.edit', $movimiento)->with('success', "Se actualizó movimiento #{$movimiento->id} del remolque <b>{$movimiento->numero_remolque}</b>");
+        return redirect()->route('movimientos.edit', $movimiento)->with('success', "Movimiento #{$movimiento->id} del remolque <b>{$movimiento->numero_remolque}</b> actualizado");
     }
 
     public function destroy(Movimiento $movimiento)
     {
         if(! $movimiento->delete() )
-            return back()->with('danger', 'Error al eliminar movimiento, intentar nuevamente');
+            return back()->with('danger', 'Error al eliminar movimiento');
 
         return redirect()->route('movimientos.index')->with('success', "Movimiento #{$movimiento->id} del remolque <b>{$movimiento->numero_remolque}</b> eliminado");
     }

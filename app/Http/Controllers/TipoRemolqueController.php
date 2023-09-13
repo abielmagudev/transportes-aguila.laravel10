@@ -21,9 +21,9 @@ class TipoRemolqueController extends Controller
     public function store(TipoRemolqueSaveRequest $request)
     {
         if(! $tipoRemolque = TipoRemolque::create($request->validated() ))
-            return back()->with('danger', 'Error al guardar tipo de remolque, intenta nuevamente');
+            return back()->with('danger', 'Error al guardar tipo de remolque');
 
-        return redirect()->route('tipos_remolque.index')->with('success', "Se guardó tipo de remolque {$tipoRemolque->nombre}");
+        return redirect()->route('tipos_remolque.index')->with('success', "Tipo de remolque <b>{$tipoRemolque->nombre}</b> guardado");
     }
 
     public function show(TipoRemolque $tipoRemolque)
@@ -39,16 +39,16 @@ class TipoRemolqueController extends Controller
     public function update(TipoRemolqueSaveRequest $request, TipoRemolque $tipoRemolque)
     {
         if(! $tipoRemolque->fill($request->validated())->save() )
-            return back()->with('danger', 'Error al actualizar tipo de remolque, intenta nuevamente');
+            return back()->with('danger', 'Error al actualizar tipo de remolque');
 
-        return redirect()->route('tipos_remolque.edit', $tipoRemolque)->with('success', "Se actualizo tipo de remolque correctamente");
+        return redirect()->route('tipos_remolque.edit', $tipoRemolque)->with('success', "Tipo de remolque <b>{$tipoRemolque->nombre}</b> actualizado");
     }
 
     public function destroy(TipoRemolque $tipoRemolque)
     {
         if(! $tipoRemolque->delete() )
-            return back()->with('danger', 'Error al eliminar tipo de remolque, intenta nuevamente');
+            return back()->with('danger', 'Error al eliminar tipo de remolque');
 
-        return redirect()->route('tipos_remolque.index')->with('success', "Tipo de remolque {$tipoRemolque->nombre} eliminado");
+        return redirect()->route('tipos_remolque.index')->with('success', "Tipo de remolque <b>{$tipoRemolque->nombre}</b> eliminado");
     }
 }
