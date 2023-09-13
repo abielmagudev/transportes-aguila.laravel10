@@ -18,7 +18,7 @@ class Movimiento extends Model
         'cantidad_dias_patio',
         'cerrado_extranjero',
         'cruce_directo',
-        'observaciones',
+        'observaciones', // null
         'id_tipo_remolque',
         'id_linea_americana',
         'id_cerca_decagps_origen',
