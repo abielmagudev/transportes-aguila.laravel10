@@ -10,4 +10,17 @@ class OrigenDestino extends Model
 {
     use HasFactory;
     use HasPaisesPredeterminadosTrait;
+
+    protected $fillable = [
+        'nombre',
+        'rfc',
+        'direccion',
+        'calle',
+        'codigo_postal',
+        'numero_exterior',
+        'numero_interior', // null
+        'pais',
+        'estado',
+        'ciudad',
+    ];
 }

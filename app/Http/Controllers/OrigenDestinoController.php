@@ -2,64 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrigenDestinoSaveRequest;
 use App\Models\OrigenDestino;
 use Illuminate\Http\Request;
 
 class OrigenDestinoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return view('origenes-destinos.index')->with('origenesDestinos', OrigenDestino::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('origenes-destinos.create', [
+            'origenDestino' => new OrigenDestino,
+            'paises' => OrigenDestino::getPaisesPredeterminados(),
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(OrigenDestinoSaveRequest $request)
     {
-        //
+        if(! $origenDestino = OrigenDestino::create( $request->validated() ) )
+            return back()->with('danger', 'Error al guardar origen | destino');
+
+        return redirect()->route('origenes_destinos.index')->with('success', "Origen | destino <b>{$origenDestino->nombre}</b> guardado");
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(OrigenDestino $origenDestino)
     {
-        //
+        return redirect()->route('origenes_destinos.index');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(OrigenDestino $origenDestino)
     {
-        //
+        return view('origenes-destinos.edit', [
+            'origenDestino' => $origenDestino,
+            'paises' => OrigenDestino::getPaisesPredeterminados(),
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, OrigenDestino $origenDestino)
+    public function update(OrigenDestinoSaveRequest $request, OrigenDestino $origenDestino)
     {
-        //
+        if(! $origenDestino = OrigenDestino::create( $request->validated() ) )
+            return back()->with('danger', 'Error al actualizar origen | destino');
+
+        return redirect()->route('origenes_destinos.edit', $origenDestino)->with('success', "Origen | destino <b>{$origenDestino->nombre}</b> actualizado");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(OrigenDestino $origenDestino)
     {
-        //
+        if(! $origenDestino->delete() )
+            return back()->with('danger', 'Error al eliminar origen | destino');
+
+        return redirect()->route('origenes_destinos.index')->with('success', "Origen | destino <b>{$origenDestino->nombre}</b> eliminado");
     }
 }
