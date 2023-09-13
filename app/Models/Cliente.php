@@ -29,4 +29,9 @@ class Cliente extends Model
         'tasa_iva',
         'cuenta_contable',
     ];
+
+    public function getNombrePaisAttribute()
+    {
+        return self::getNombrePais($this->pais);
+    }
 }

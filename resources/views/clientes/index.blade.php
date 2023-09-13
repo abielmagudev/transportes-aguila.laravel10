@@ -40,11 +40,11 @@
                     <td>{{ $cliente->codigo_postal }}</td>
                     <td class="text-nowrap">{{ $cliente->ciudad }}</td>
                     <td class="text-nowrap">{{ $cliente->estado }}</td>
-                    <td>{{ $cliente->pais }}</td>
+                    <td class="text-nowrap">{{ $cliente->nombre_pais }}</td>
                     <td>{{ $cliente->cuenta_banco }}</td>
                     <td>{{ $cliente->moneda }}</td>
                     <td>{{ $cliente->regimen_fiscal }}</td>
-                    <td>{{ $cliente->retencion_cuatro_porciento ? 'Si' : 'No' }}</td>
+                    <td>{{ $cliente->retencion ? 'si' : 'no' }}</td>
                     <td>{{ $cliente->tipo_pago }}</td>
                     <td>{{ $cliente->tasa_iva }}%</td>
                     <td>{{ $cliente->cuenta_contable }}</td>
