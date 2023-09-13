@@ -51,4 +51,6 @@
         </div>
     </div>
 </div>
+<br>
+<x-paginacion :collection="$movimientos" />
 @endsection

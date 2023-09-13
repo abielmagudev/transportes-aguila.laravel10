@@ -57,4 +57,6 @@
         </div>
     </div>
 </div>
+<br>
+<x-paginacion :collection="$clientes" />
 @endsection

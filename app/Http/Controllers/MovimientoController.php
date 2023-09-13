@@ -21,7 +21,7 @@ class MovimientoController extends Controller
                 'LineaAmericana', 
                 'cercaGpsOrigen', 
                 'cercaGpsDestino'
-            ])->orderByDesc('id')->get()
+            ])->orderByDesc('id')->paginate(25)
         );
     }
 

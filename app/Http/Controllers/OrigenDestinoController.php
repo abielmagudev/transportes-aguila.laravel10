@@ -10,7 +10,7 @@ class OrigenDestinoController extends Controller
 {
     public function index()
     {
-        return view('origenes-destinos.index')->with('origenesDestinos', OrigenDestino::all());
+        return view('origenes-destinos.index')->with('origenesDestinos', OrigenDestino::paginate(25));
     }
 
     public function create()

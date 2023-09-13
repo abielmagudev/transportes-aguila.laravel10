@@ -10,7 +10,7 @@ class ClienteController extends Controller
 {
     public function index()
     {
-        return view('clientes.index')->with('clientes', Cliente::all());
+        return view('clientes.index')->with('clientes', Cliente::paginate(25));
     }
 
     public function create()

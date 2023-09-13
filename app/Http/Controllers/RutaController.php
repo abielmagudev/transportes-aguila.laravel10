@@ -10,7 +10,7 @@ class RutaController extends Controller
 {
     public function index()
     {
-        return view('rutas.index')->with('rutas', Ruta::all());
+        return view('rutas.index')->with('rutas', Ruta::paginate(25));
     }
 
     public function create()
