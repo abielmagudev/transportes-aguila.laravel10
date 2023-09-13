@@ -73,7 +73,7 @@
 </div>
 <div class="mb-3">
     <label for="textareaObservaciones" class="form-label">Observaciones</label>
-    <textarea class="form-control" id="textareaObservaciones" rows="3" name="observaciones">{{ old('observaciones', $movimiento->observaciones) }}</textarea>
+    <textarea class="form-control" id="textareaObservaciones" rows="3" name="observaciones" placeholder="Opcional">{{ old('observaciones', $movimiento->observaciones) }}</textarea>
     <x-error name='observaciones'></x-error>
 </div>
 <div class="mb-3">
