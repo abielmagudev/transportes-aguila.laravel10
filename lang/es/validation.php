@@ -214,4 +214,19 @@ return [
         'username'                 => 'usuario',
         'year'                     => 'año',
     ],
+
+
+    // Custom attributes
+
+    'attributes' => [
+        'codigo_postal' => 'código postal',
+        'direccion' => 'dirección',
+        'kilometros' => 'kilómetros',
+        'numero_exterior' => 'número exterior',
+        'pais' => 'país',
+        'regimen_fiscal' => 'régimen fiscal',
+        'rfc' => 'RFC',
+        'tasa_iva' => 'tasa(IVA)',
+        'tipo_pago' => 'tipo de pago',
+    ],
 ];
